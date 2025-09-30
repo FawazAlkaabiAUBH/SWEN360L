@@ -45,3 +45,11 @@ else
 end
 
 print(`Solar flares detected: {#flareData}`)
+
+while true do
+    print("Which solar flare do you want to view?")
+    local idx: number? = tonumber(stdio.prompt("text", "Index"))
+    if idx then
+        print(flareData[idx])
+    end
+end
