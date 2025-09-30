@@ -10,10 +10,10 @@ Sign up for an API key for [NASA](https://api.nasa.gov) and add it to your `.env
 
 ## Usage
 
-In `/lib/`, there will be libraries for fetching API endpoints.
+In `/lib/`, there is a library for parsing the data fetched from NASA's FLR API.
 
-To run an example script, open a terminal and run it using Lune:
+To run the script, open a terminal and run it using Lune:
 
 ```sh
-lune run ./example.luau
+lune run ./main.luau
 ```
