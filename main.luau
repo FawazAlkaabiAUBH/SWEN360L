@@ -21,7 +21,7 @@ end
 -- TODO: parse solar flare data
 
 local flareData: {dataParser.FlareEvent}
-
+print("Date End can be empty to use current date")
 print("Date format: YYYY-MM-DD")
 local startDate, endDate = stdio.prompt("text", "Date Start"), stdio.prompt("text", "Date End")
 
