@@ -2,6 +2,7 @@ local net = require("@lune/net")
 local serde = require("@lune/serde")
 local stdio = require("@lune/stdio")
 local envget = require("./lib/env")
+local dataParser = require("./lib/dataParser")
 
 
 local ENDPOINT = "https://api.nasa.gov/DONKI/FLR"
@@ -19,8 +20,8 @@ end
 
 -- TODO: parse solar flare data
 
-local flareData
-
+local flareData: {dataParser.FlareEvent}
+print("Date End can be empty to use current date")
 print("Date format: YYYY-MM-DD")
 local startDate, endDate = stdio.prompt("text", "Date Start"), stdio.prompt("text", "Date End")
 
@@ -48,9 +49,9 @@ print(`Solar flares detected: {#flareData}`)
 
 while true do
     local idx: number? = tonumber(stdio.prompt("text", "Select Solar flare"))
-    local data = flareData[idx]
+    local data: dataParser.FlareEvent = flareData[idx]
     if idx and data then
-        print(flareData[idx])
+        print(dataParser.parse(flareData[idx]))
     else
         print("Invalid number. Exiting.")
         break
