@@ -49,9 +49,9 @@ print(`Solar flares detected: {#flareData}`)
 
 while true do
     local idx: number? = tonumber(stdio.prompt("text", "Select Solar flare"))
-    local data = flareData[idx]
+    local data: dataParser.FlareEvent = flareData[idx]
     if idx and data then
-        print(flareData[idx])
+        print(dataParser.parse(flareData[idx]))
     else
         print("Invalid number. Exiting.")
         break
