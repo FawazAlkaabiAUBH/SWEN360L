@@ -35,7 +35,7 @@ if not startDate then
     error("Start Date is invalid.")
 end
 
-print(startDate, endDate)
+print("Getting solar flare data...")
 
 local response = net.request(getApiEndpoint(startDate, endDate))
 if response.ok then
@@ -47,9 +47,12 @@ end
 print(`Solar flares detected: {#flareData}`)
 
 while true do
-    print("Which solar flare do you want to view?")
-    local idx: number? = tonumber(stdio.prompt("text", "Index"))
-    if idx then
+    local idx: number? = tonumber(stdio.prompt("text", "Select Solar flare"))
+    local data = flareData[idx]
+    if idx and data then
         print(flareData[idx])
+    else
+        print("Invalid number. Exiting.")
+        break
     end
 end
